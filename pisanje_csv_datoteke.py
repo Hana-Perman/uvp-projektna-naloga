@@ -38,7 +38,6 @@ def html_v_csv_gorovje(html_tabela):
 
 def zapis_v_csv(celice):
    
-    #pot = Path(__file__).parent / "datotetka.csv" 
     with open ("datoteka.csv","w", encoding="utf-8") as datoteka:
         datoteka.write(celice)
 

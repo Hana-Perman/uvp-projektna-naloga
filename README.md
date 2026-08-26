@@ -11,6 +11,9 @@ Gorovja, ki pridejo v poštev so:
 - `"ŠKOFJELOŠKO HRIBOVJE"`,
 - `"VZHODNOSLOVENSKO HRIBOVJE"`.
 
+## Cilj projektne naloge
+V projetkni nalogi si poskušamo z analizo podatkov o vremenu ustvariti predstavo o tem, kakšne vremenske razmere lahko pričakujemo in kako se le-te spreminjajo časovno in z nadmorsko višino ali še kako drugače. 
+
 ## Struktura projektne naloge
 
 ```

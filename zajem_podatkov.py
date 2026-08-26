@@ -21,7 +21,6 @@ def povezava_gorovje(gorovje):
     soup = BeautifulSoup(vsebina.text, "html.parser") #string razčleni v html, to mu povemo s "html.parser"
 
     for a in soup.find_all("a", href=True): #najde vse linke na spletni strani (ki so v indeksni tabeli)
-        ime = a.get_text(" ", strip=True) #izlušči le vidno besedilo
         href = a["href"]
 
         if gorovje.lower() in href.lower(): #če povezava, do izbranega gorovja obstaja nam jo funkcija vrne

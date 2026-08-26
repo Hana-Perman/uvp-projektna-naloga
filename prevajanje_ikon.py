@@ -68,8 +68,8 @@ def prevedi_ikono(ime_ikone):
 
     vreme = re.search(r"([A-Za-z]+)(_([a-z]+)([A-Z]+))?", ime_ikone)
 
-    """prvi primer: ikona je ikona za veter, torej je oblike modN ipd
-    drugi primer: ikona je ikona za vreme je oblike  overcast_lightRA"""
+    #prvi primer: ikona je ikona za veter, torej je oblike modN ipd
+    #drugi primer: ikona je ikona za vreme je oblike  overcast_lightRA
     
 
     if "light" in vreme.group(1) or "mod" in vreme.group(1) or "heavy" in vreme.group(1):
@@ -80,7 +80,6 @@ def prevedi_ikono(ime_ikone):
         return f"{jakost_vetra[ja]} {smeri[sm]}"
 
     else:
-       
         ob = vreme.group(1)
         ja = vreme.group(3)
         po = vreme.group(4)
