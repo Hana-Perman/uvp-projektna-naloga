@@ -96,7 +96,7 @@ def ustvari_csv_je():
     veter = []
     vreme = []
 
-   # DOLOČIMO, V KATEREM ODSEKU SMO
+    # DOLOČIMO, V KATEREM ODSEKU SMO
     odsek = None 
     for vrstica in vsi_podatki: 
 
@@ -121,7 +121,7 @@ def ustvari_csv_je():
             elif vrstica[1].startswith("Vreme"): 
                 odsek = "vreme" 
 
-        # ----------------------------------------- # SHRANJEVANJE PODATKOV V PRAVILEN SEZNAM # ----------------------------------------- 
+            # SHRANJEVANJE PODATKOV V PRAVILEN SEZNAM
             if odsek == "temperatura": 
                 temperatura.append(vrstica) 
             elif odsek == "vlaga": 

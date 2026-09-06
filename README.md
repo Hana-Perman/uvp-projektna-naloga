@@ -36,32 +36,33 @@ Pridobivanje poddatkov je bilo postopno. Najprej smo s funkcijami v datoteki `za
 
 ## Kako smo analizirali podatke
 
-Podatki v `datoteka.csv` so strukturirani tako:
+Podatki v `vremenska_napoved.csv` so strukturirani tako:
 
-| JULIJSKE ALPE | Izračun: Sreda 26.08.2026 02 CEST | Sr 08 CEST          | Sr 11 CEST       | Sr 14 CEST                      | Sr 17 CEST                         | Sr 20 CEST       | Sr 23 CEST        | Če 02 CEST        |
-|---------------|-----------------------------------|---------------------|------------------|---------------------------------|------------------------------------|------------------|-------------------|-------------------|
-| JULIJSKE ALPE | Vreme na 2500 m                   | jasno               | jasno            | delno oblačno rahel/-lo/-la dež | pretežno oblačno rahel/-lo/-la dež | delno oblačno    | oblačno           | jasno             |
-| JULIJSKE ALPE | Vreme na 1500 m                   | jasno               | jasno            | delno oblačno rahel/-lo/-la dež | pretežno oblačno rahel/-lo/-la dež | delno oblačno    | oblačno           | jasno             |
-| JULIJSKE ALPE | Temperatura                       |                     |                  |                                 |                                    |                  |                   |                   |
-| JULIJSKE ALPE | na 5500 m                         | -8 °C               | -8 °C            | -8 °C                           | -8 °C                              | -8 °C            | -8 °C             | -8 °C             |
-| JULIJSKE ALPE | na 3000 m                         | 5 °C                | 6 °C             | 7 °C                            | 7 °C                               | 9 °C             | 8 °C              | 8 °C              |
-| JULIJSKE ALPE | na 2500 m                         | 9 °C                | 10 °C            | 9 °C                            | 10 °C                              | 11 °C            | 10 °C             | 11 °C             |
-|...|
-| JULIJSKE ALPE | Višina ničte izoterme             | 3832 m              | 3883 m           | 4086 m                          | 4204 m                             | 4389 m           | 4274 m            | 4244 m            |
-| JULIJSKE ALPE | Meja sneženja                     | 3525 m              | 3579 m           | 3750 m                          | 3852 m                             | 4109 m           | 4000 m            | 3984 m            |
-| JULIJSKE ALPE | Veter                             |                     |                  |                                 |                                    |                  |                   |                   |
-| JULIJSKE ALPE | na 5500 m                         | močan zahod         | zmeren zahod     | močan zahod                     | močan zahod                        | močan zahod      | zmeren zahod      | zmeren zahod      |
-| JULIJSKE ALPE | hitrost                           | 55 km/h             | 51 km/h          | 62 km/h                         | 64 km/h                            | 64 km/h          | 42 km/h           | 46 km/h           |
-| JULIJSKE ALPE | na 3000 m                         | zmeren severo-zahod | zmeren zahod     | zmeren zahod                    | zmeren zahod                       | zmeren zahod     | rahel zahod       | zmeren jugo-zahod |
-| JULIJSKE ALPE | hitrost                           | 18 km/h             | 19 km/h          | 21 km/h                         | 22 km/h                            | 23 km/h          | 17 km/h           | 27 km/h           |
-| JULIJSKE ALPE | Vlažnost                          |                     |                  |                                 |                                    |                  |                   |                   |
-|...|
-| JULIJSKE ALPE | na 5500 m                         | 42 %                | 65 %             | 51 %                            | 49 %                               | 63 %             | 49 %              | 81 %              |
-| JULIJSKE ALPE | na 3000 m                         | 64 %                | 60 %             | 79 %                            | 80 %                               | 60 %             | 75 %              | 68 %              |
-| JULIJSKE ALPE | na 2500 m                         | 57 %                | 54 %             | 90 %                            | 83 %                               | 67 %             | 74 %              | 77 %              |
-|...|
-| JULIJSKE ALPE | Stabilnost                        | rahlo labilno       | labilno          | labilno                         | labilno                            | labilno          | labilno           | rahlo labilno     |
-|...|
+| Gorovje                 | Izračun: Nedelja 06.09.2026 02 CEST | Ne 08 CEST     | Ne 11 CEST     | Ne 14 CEST     | Ne 17 CEST     | Ne 20 CEST | Ne 23 CEST       | Po 02 CEST | Po 05 CEST     | To 11 CEST     |
+|-------------------------|-------------------------------------|----------------|----------------|----------------|----------------|------------|------------------|------------|----------------|----------------|
+| JULIJSKE ALPE           | Vreme na 2500 m                     | oblačno        | pretežno jasno | pretežno jasno | jasno          | jasno      | jasno            | jasno      | pretežno jasno | pretežno jasno |
+| JULIJSKE ALPE           | Vreme na 1500 m                     | oblačno        | pretežno jasno | pretežno jasno | jasno          | jasno      | jasno            | jasno      | pretežno jasno | pretežno jasno |
+| KAMNIŠKO-SAVINJSKE ALPE | Vreme na 2500 m                     | pretežno jasno | delno oblačno  | delno oblačno  | pretežno jasno | jasno      | jasno            | jasno      | pretežno jasno | pretežno jasno |
+| KAMNIŠKO-SAVINJSKE ALPE | Vreme na 1500 m                     | pretežno jasno | delno oblačno  | delno oblačno  | pretežno jasno | jasno      | jasno            | jasno      | pretežno jasno | pretežno jasno |
+| POHORJE                 | Vreme na 1500 m                     | pretežno jasno | pretežno jasno | pretežno jasno | jasno          | jasno      | pretežno oblačno | jasno      | jasno          | jasno          |
+| SNEŽNIK                 | Vreme na 1500 m                     | jasno          | jasno          | jasno          | jasno          | jasno      | jasno            | jasno      | jasno          | jasno          |
+
+
+Podatki v `temperatura.csv`,`vlaga.csv` in `veter.csv` so strukturirani podobno. Za primer vzemimo `temperatura.csv` :
+
+| Gorovje                 | Izračun: Nedelja 06.09.2026 02 CEST | Ne 08 CEST | Ne 11 CEST | Ne 14 CEST | Ne 17 CEST | Ne 20 CEST | Ne 23 CEST | Po 02 CEST | Po 05 CEST | Po 08 CEST |
+|-------------------------|-------------------------------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
+| JULIJSKE ALPE           | na 5500 m                           | -5 °C      | -5 °C      | -4 °C      | -5 °C      | -5 °C      | -5 °C      | -6 °C      | -7 °C      | -7 °C      |
+| JULIJSKE ALPE           | na 3000 m                           | 5 °C       | 6 °C       | 6 °C       | 7 °C       | 8 °C       | 8 °C       | 9 °C       | 10 °C      | 10 °C      |
+| JULIJSKE ALPE           | na 2500 m                           | 8 °C       | 8 °C       | 8 °C       | 9 °C       | 10 °C      | 10 °C      | 10 °C      | 12 °C      | 12 °C      |
+| JULIJSKE ALPE           | na 2000 m                           | 10 °C      | 9 °C       | 12 °C      | 13 °C      | 13 °C      | 13 °C      | 13 °C      | 13 °C      | 13 °C      |
+| JULIJSKE ALPE           | na 1500 m                           | 12 °C      | 13 °C      | 17 °C      | 18 °C      | 17 °C      | 16 °C      | 15 °C      | 14 °C      | 14 °C      |
+| JULIJSKE ALPE           | na 1000 m                           | 15 °C      | 17 °C      | 20 °C      | 22 °C      | 20 °C      | 19 °C      | 18 °C      | 17 °C      | 17 °C      |
+| JULIJSKE ALPE           | na 500 m                            | 19 °C      | 20 °C      | 24 °C      | 25 °C      | 23 °C      | 22 °C      | 21 °C      | 20 °C      | 20 °C      |
+| KAMNIŠKO-SAVINJSKE ALPE | na 5500 m                           | -5 °C      | -5 °C      | -5 °C      | -4 °C      | -5 °C      | -5 °C      | -6 °C      | -7 °C      | -7 °C      |
+...
+| KARAVANKE               | na 5500 m                           | -5 °C      | -5 °C      | -5 °C      | -5 °C      | -5 °C      | -5 °C      | -6 °C      | -7 °C      | -7 °C      |
+ ...
 
 
 in tako dalje za vsa gorovja iz zgoraj navedenega seznama.

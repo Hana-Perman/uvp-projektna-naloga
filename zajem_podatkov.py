@@ -1,4 +1,4 @@
-#link do spletne strani https://meteo.arso.gov.si/met/sl/weather/bulletin/mountain/
+# link do spletne strani https://meteo.arso.gov.si/met/sl/weather/bulletin/mountain/
 import time
 from  urllib.parse import urljoin
 import requests
