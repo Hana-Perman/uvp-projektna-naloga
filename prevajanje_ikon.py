@@ -9,7 +9,6 @@ in pove kakšno vreme je napovedano, tako, da so podatki primerni za nadaljno an
 
 import re
 
-
 def prevedi_ikono(ime_ikone):
 
     oblacnost = {
