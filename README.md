@@ -20,10 +20,13 @@ V projetkni nalogi si poskušamo z analizo podatkov o vremenu ustvariti predstav
 projektna-naloga/
 ├── analiza.ipynb
 ├── README.md
-├── datoteka.csv
 ├── prevajanje_ikon.py
 ├── pisanje_csv_datoteke.py
 ├── zajem_podatkov.py
+├── vremenska_napoved.csv
+├── temperatura.csv
+├── vlaga.csv
+├── veter.csv
 └── urejanji_zapiski_iz_pogovora.pdf
 ```
 
