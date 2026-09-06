@@ -1,7 +1,9 @@
-from zajem_podatkov import *
-from prevajanje_ikon import *
 import re
 import csv
+
+from zajem_podatkov import *
+from prevajanje_ikon import  prevedi_ikono
+
 
 def html_v_csv_gorovje(html_tabela):
     """HTML tabelo pretvori v zapis, primeren za pisanje v CSV."""
@@ -57,12 +59,12 @@ def zapis_v_csv(ime_datoteke, celice, glava):
         for vrstica in celice: 
             pisec.writerow(vrstica)
 
-    return
 
 
-#----------------------GENERIRANJE-CSV-DATOTEKE---------------------------------------------------------------------------------------------------------------
-"""ta del programa je namenjen temu, da se sprehodi skozi vsa mozna gorovja za katera arso napoveduje vreme 
-in izlušči podatke ter jih shrani v csv"""
+# GENERIRANJE-CSV-DATOTEKE
+# ta del programa je namenjen temu, da se sprehodi skozi
+# vsa mozna gorovja za katera arso napoveduje vreme
+# in izlušči podatke ter jih shrani v csv
 
 def ustvari_csv_je():
 
@@ -90,7 +92,6 @@ def ustvari_csv_je():
         vsi_podatki.extend(besedilo)
         
     # Razdelimo podatke na podatke o vremenu, podatke o temperaturi, podatke o vetru in podatke o vlagi
-
     temperatura = []
     vlaga = []
     veter = []
@@ -99,7 +100,6 @@ def ustvari_csv_je():
     # DOLOČIMO, V KATEREM ODSEKU SMO
     odsek = None 
     for vrstica in vsi_podatki: 
-
         # Vrstica je prazna, ko ima poleg imena gorovja samo prazne celice. 
         prazna_vrstica = all( celica == "" for celica in vrstica[1:] ) 
 
@@ -108,37 +108,38 @@ def ustvari_csv_je():
             continue 
 
         # ZAČETEK POSAMEZNEGA ODSEKA
-        if len(vrstica) > 1: 
-            if vrstica[1] == "Temperatura": 
-                odsek = "temperatura" 
-                continue 
-            elif vrstica[1] == "Vlažnost": 
-                odsek = "vlaga" 
-                continue 
-            elif vrstica[1] == "Veter": 
-                odsek = "veter" 
-                continue 
-            elif vrstica[1].startswith("Vreme"): 
-                odsek = "vreme" 
+        if len(vrstica) > 1:
+            if vrstica[1] == "Temperatura":
+                odsek = "temperatura"
+                continue
+            elif vrstica[1] == "Vlažnost":
+                odsek = "vlaga"
+                continue
+            elif vrstica[1] == "Veter":
+                odsek = "veter"
+                continue
+            elif vrstica[1].startswith("Vreme"):
+                odsek = "vreme"
 
             # SHRANJEVANJE PODATKOV V PRAVILEN SEZNAM
-            if odsek == "temperatura": 
-                temperatura.append(vrstica) 
-            elif odsek == "vlaga": 
-                vlaga.append(vrstica) 
-            elif odsek == "veter": 
-                veter.append(vrstica) 
-            elif odsek == "vreme": vreme.append(vrstica) 
+            if odsek == "temperatura":
+                temperatura.append(vrstica)
+            elif odsek == "vlaga":
+                vlaga.append(vrstica)
+            elif odsek == "veter":
+                veter.append(vrstica)
+            elif odsek == "vreme":
+                vreme.append(vrstica)
 
     
-    # --------------------------------------------- # ZAPIS V ŠTIRI CSV DATOTEKE # --------------------------------------------- 
-    # imena stolpcev 
-    glava_temperatura = (["Gorovje"] + glava[1:]) 
-    glava_veter = (["Gorovje"] + glava[1:]) 
-    glava_vlaga = (["Gorovje"] + glava[1:]) 
+    # ZAPIS V ŠTIRI CSV DATOTEKE
+    # imena stolpcev
+    glava_temperatura = (["Gorovje"] + glava[1:])
+    glava_veter = (["Gorovje"] + glava[1:])
+    glava_vlaga = (["Gorovje"] + glava[1:])
     glava_vreme = (["Gorovje"] + glava[1:])
 
-    zapis_v_csv( "temperatura.csv", temperatura, glava_temperatura ) 
-    zapis_v_csv( "vlaga.csv", vlaga, glava_vlaga ) 
-    zapis_v_csv( "veter.csv", veter, glava_veter ) 
-    zapis_v_csv( "vremenska_napoved.csv", vreme, glava_vreme ) 
+    zapis_v_csv( "temperatura.csv", temperatura, glava_temperatura )
+    zapis_v_csv( "vlaga.csv", vlaga, glava_vlaga )
+    zapis_v_csv( "veter.csv", veter, glava_veter )
+    zapis_v_csv( "vremenska_napoved.csv", vreme, glava_vreme )
